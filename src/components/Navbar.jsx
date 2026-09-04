@@ -17,20 +17,26 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div
-        className={`transition-all duration-500 ${
-          scrolled ? 'mx-3 mt-3 rounded-2xl border border-white/10 bg-void-950/70 shadow-card backdrop-blur-xl sm:mx-6 sm:mt-4' : 'border-b border-transparent bg-transparent'
-        }`}
+      <motion.div
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.01,
+          ease: "linear",
+        }}
+        className={`transition-all duration-500 ${scrolled ? 'mx-3 mt-3 rounded-2xl border border-white/10 bg-void-950/70 shadow-card backdrop-blur-xl sm:mx-6 sm:mt-4' : 'border-b border-transparent bg-transparent'
+          }`}
       >
-        <nav className="container-px mx-auto flex h-16 max-w-7xl items-center justify-between">
+        <nav className="flex items-center justify-between h-16 mx-auto container-px max-w-7xl">
           <a href="#top" className="flex items-center gap-2.5">
-            <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 shadow-glow">
-              <Sparkles className="h-4 w-4 text-white" strokeWidth={2.25} />
+            <span className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-indigo-600 shadow-glow">
+              <Sparkles className="w-4 h-4 text-white" strokeWidth={2.25} />
             </span>
             <span className="text-[15px] font-semibold tracking-tight text-mist-100">SitePilot AI</span>
           </a>
 
-          <ul className="hidden items-center gap-1 lg:flex">
+          <ul className="items-center hidden gap-1 lg:flex">
             {LINKS.map((link) => (
               <li key={link}>
                 <a
@@ -43,7 +49,7 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-3 lg:flex">
+          <div className="items-center hidden gap-3 lg:flex">
             <a href="#login" className="px-2 text-[14px] font-medium text-mist-300 hover:text-mist-100">
               Log in
             </a>
@@ -56,14 +62,14 @@ export default function Navbar() {
           </div>
 
           <button
-            className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 text-mist-200 lg:hidden"
+            className="grid w-10 h-10 border rounded-lg place-items-center border-white/10 text-mist-200 lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </nav>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {open && (
@@ -72,7 +78,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="mx-3 mt-2 rounded-2xl border border-white/10 bg-void-900/95 p-4 shadow-card backdrop-blur-xl lg:hidden"
+            className="p-4 mx-3 mt-2 border rounded-2xl border-white/10 bg-void-900/95 shadow-card backdrop-blur-xl lg:hidden"
           >
             <ul className="flex flex-col gap-1">
               {LINKS.map((link) => (
@@ -87,7 +93,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="mt-3 flex flex-col gap-2 border-t border-white/10 pt-3">
+            <div className="flex flex-col gap-2 pt-3 mt-3 border-t border-white/10">
               <a href="#login" className="rounded-lg px-3 py-2.5 text-center text-[15px] font-medium text-mist-300">
                 Log in
               </a>

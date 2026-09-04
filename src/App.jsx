@@ -20,7 +20,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-void-950 bg-noise text-mist-100 antialiased">
+    <div className="relative min-h-screen antialiased bg-void-950 bg-noise text-mist-100">
       <Navbar />
       <main>
         <Hero />
