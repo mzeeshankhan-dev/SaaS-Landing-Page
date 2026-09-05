@@ -21,8 +21,8 @@ export default function Navbar() {
         initial={{ y: -60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{
-          duration: 1,
-          delay: 0.01,
+          duration: 0.8,
+          // delay: 0.01,
           ease: "linear",
         }}
         className={`transition-all duration-500 ${scrolled ? 'mx-3 mt-3 rounded-2xl border border-white/10 bg-void-950/70 shadow-card backdrop-blur-xl sm:mx-6 sm:mt-4' : 'border-b border-transparent bg-transparent'

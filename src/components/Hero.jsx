@@ -30,7 +30,7 @@ export default function Hero() {
   return (
     <div>
       <div className="flex justify-center -z-10">
-        <div className="absolute grid items-center justify-center w-screen h-screen grid-cols-2 max-w-[1400px] mx-auto">
+        <div className="absolute grid items-center justify-center w-screen h-screen max-h-[650px] grid-cols-2 max-w-[1400px] mx-auto overflow-hidden">
           <motion.img
             width={1000}
             height={1000}
@@ -52,7 +52,7 @@ export default function Hero() {
               ease: [0.22, 1, 0.36, 1],
               delay:0.2,
             }}
-            className='translate-y-1.5 brightness-75' src={robotHand} alt="Robot Hand" />
+            className='relative top-2 brightness-75' src={robotHand} alt="Robot Hand" />
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export default function Hero() {
 
         <Section>
           {/* Left: copy */}
-          <div className='grid grid-cols-1 min-[820px]:grid-cols-[2fr_1fr] items-center gap-16 lg:gap-8 mb-20 lg:mb-24'>
+          <div className='grid grid-cols-1 min-[820px]:grid-cols-[2fr_1fr] items-center gap-16 lg:gap-8 mb-20 lg:mb-20'>
             <div className="relative z-10 flex flex-col items-start gap-7">
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
